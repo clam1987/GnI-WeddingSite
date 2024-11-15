@@ -1,17 +1,154 @@
+@font-face {
+  font-family: "Sweet Candies";
+  src: url("../fonts/sweet_candies/Sweet\ Candies.otf");
+}
+
 body {
-    margin: 0;
-    background-color: rgba(245, 234, 207, 0.37);
+  margin: 0;
+  background-color: rgba(245, 234, 207, 0.37);
 }
 
 .top_border {
-    /* transform: translate(0, -45%); */
-    width: 100%;
-    height: auto;
+  /* transform: translate(0, -45%); */
+  width: 100%;
+  /* height: auto; */
+  height: 100px;
+  max-height: 300px;
+  /* max-width: 1440px; */
+}
+
+.candy {
+  font-family: "Sweet Candies";
+  font-weight: bold;
+  text-shadow: 1px 2px 2px rgb(0 0 0 / 0.6);
+}
+
+.bellota {
+  font-family: "Bellota", sans-serif;
+  font-weight: bold;
+}
+
+.divider {
+  border-top: 2px solid black;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 21%;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-3 {
+  margin-top: 3rem;
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}
+
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+.mb-5 {
+  margin-bottom: 5rem;
+}
+
+.p1 {
+  font-size: 1rem;
+}
+
+.p2 {
+  font-size: 1.5rem;
+}
+
+.p3 {
+  font-size: 2rem;
+}
+
+.p4 {
+  font-size: 2.5rem;
+}
+
+.p5 {
+  font-size: 3rem;
+}
+
+.p6 {
+  font-size: 4rem;
+}
+
+.p7 {
+  font-size: 5rem;
+}
+
+.p8 {
+  font-size: 6rem;
+}
+
+.p9 {
+  font-size: 7rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* .hero {
+  width: 100%;
+  height: auto;
+} */
+
+.hero-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
 }
 
 @media only screen and (max-width: 600px) {
-    .top_border {
-        height: auto;
-        width: 100%;
-    }
+  .top_border {
+    height: auto;
+    width: 100%;
+  }
+
+  .candy {
+    font-size: 4rem;
+  }
 }
