@@ -119,6 +119,10 @@ body {
   height: auto;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .w-full {
   width: 100%;
 }
@@ -132,6 +136,15 @@ body {
   height: auto;
 } */
 
+.hero {
+  position: relative;
+  width: 100%; /* Adjust based on your design */
+  max-width: 1200px;
+  margin: 0 auto;
+  height: auto; /* To maintain aspect ratio */
+  z-index: 0; /* Ensure it’s visible */
+}
+
 .hero-banner {
   position: fixed;
   top: 0;
@@ -140,6 +153,7 @@ body {
   height: 100vh;
   overflow: hidden;
   z-index: 1;
+  transform-origin: center;
 }
 
 @media only screen and (max-width: 600px) {
