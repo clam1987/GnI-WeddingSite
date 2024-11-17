@@ -3,8 +3,11 @@
   src: url("../fonts/sweet_candies/Sweet\ Candies.otf");
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto; /* Ensure content can scroll */
   background-color: rgba(245, 234, 207, 0.37);
 }
 
@@ -55,13 +58,21 @@ body {
   height: auto;
 } */
 
+.content {
+  padding: 2rem;
+  margin-top: 100vh;
+}
+
+.hero-wrapper {
+  height: 100vh;  
+}
 
 .hero-banner {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 100vh;
   overflow: hidden;
   z-index: 1;
   transform-origin: center;

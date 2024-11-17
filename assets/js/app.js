@@ -1,31 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // const parallax = document.querySelectorAll(".parallax");
   const side_nav = document.querySelectorAll('.sidenav');
+  const parallax = document.querySelectorAll(".parallax");
   const side_nav_instance = M.Sidenav.init(side_nav);
-  // M.Parallax.init(parallax);
-  // gsap.registerPlugin(ScrollTrigger);
+  const parallax_instance = M.Parallax.init(parallax);
 
-  // // Select the target destination
-  // const hero = document.querySelector(".hero");
-  // const heroRect = hero.getBoundingClientRect();
+   // GSAP Hero Banner Animation
+   gsap.registerPlugin(ScrollTrigger);
 
-  // // console.log(heroRect);
-
-  // // Calculate scale and offsets
-  // const targetScale = heroRect.width / window.innerWidth; // Shrink proportionally
-  // const targetX = heroRect.left - (window.innerWidth / 2 - heroRect.width / 2); // Center horizontally
-  // const targetY = heroRect.top - (window.innerHeight / 2 - heroRect.height / 2); // Center vertically
-
-  // // Animate the hero banner
-  // gsap.to(".hero-banner", {
-  //   scale: targetScale, // Shrinks the image
-  //   x: targetX,         // Moves horizontally
-  //   y: targetY,         // Moves vertically
-  //   scrollTrigger: {
-  //     trigger: ".container", // Animation starts when `.container` scrolls into view
-  //     start: "top top",      // Starts when `.container` reaches top of the viewport
-  //     end: "bottom top",     // Ends when `.container` bottom reaches the top
-  //     scrub: true,           // Smooth animation tied to scroll
-  //   },
-  // });
+   gsap.to(".hero-banner", {
+     scrollTrigger: {
+       trigger: ".hero-banner", // The element that triggers the animation
+       start: "top top", // Start the animation when the top of the trigger is at the top of the viewport
+       end: "bottom top", // End the animation when the bottom of the trigger hits the top of the viewport
+       scrub: true, // Smooth scrubbing effect
+     },
+     scale: 0.5, // Shrink to 50% of original size
+     y: "-50%", // Move upwards towards the center
+     ease: "power2.out",
+   });
 });
