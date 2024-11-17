@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const nav = document.querySelector(".nav-wrapper");
+  const nav_item = document.querySelectorAll(".nav-item");
+  const banner = document.querySelector(".hero-banner");
+  const navHeight = nav.getBoundingClientRect().height;
+  const bannerHeight = banner.getBoundingClientRect().height;
+  const heightOffset = 20;
+
   const side_nav = document.querySelectorAll(".sidenav");
   const parallax = document.querySelectorAll(".parallax");
   const side_nav_instance = M.Sidenav.init(side_nav);
@@ -15,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     scrollTrigger: {
       trigger: ".hero-banner",
       start: "top top", // When the hero is at the top of the viewport
-      end: "center top", // When the hero is completely out of view
+      end: "bottom top", // When the hero is completely out of view
       scrub: 2, // Smooth scrubbing effect
     },
   });
@@ -53,4 +60,22 @@ document.addEventListener("DOMContentLoaded", function () {
       scrub: 2, // Smooth transition
     },
   });
+
+  const bannerObserver = new IntersectionObserver(
+    (entries) => {
+      const [entry] = entries;
+      if (!entry.isIntersecting) {
+        nav.style.display = "none";
+      } else {
+        nav.style.display = "block";
+      }
+    },
+    {
+      root: null,
+      threshold: 0,
+      rootMargin: `-${bannerHeight - navHeight - heightOffset}px`,
+    }
+  );
+
+  bannerObserver.observe(banner);
 });

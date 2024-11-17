@@ -9,6 +9,12 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Nunito:wght@800&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.1.1/dist/css/materialize.min.css"
@@ -31,13 +37,17 @@
           ><i class="material-icons">menu</i></a
         >
         <ul class="flex justify-even hide-on-med-and-down">
-          <li><a class="bellota" href="sass.html">Welcome</a></li>
-          <li><a class="bellota" href="badges.html">Our Story</a></li>
+          <li><a class="bellota nav-item" href="#welcome">Welcome</a></li>
+          <li><a class="bellota nav-item" href="badges.html">Our Story</a></li>
           <li>
-            <a class="bellota" href="collapsible.html">Discover Vancouver</a>
+            <a class="bellota nav-item" href="collapsible.html"
+              >Discover Vancouver</a
+            >
           </li>
           <li>
-            <a class="bellota" href="mobile.html">Wedding Invitation</a>
+            <a class="bellota nav-item" href="mobile.html"
+              >Wedding Invitation</a
+            >
           </li>
         </ul>
       </div>
@@ -88,6 +98,20 @@
         <div class="row mt-5 flex justify-center">
           <div class="s12">
             <img class="responsive-img hero" src="./assets/img/hero.jpg" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="s12 flex justify-center">
+            <img
+              class="responsive-img"
+              class="responsive-img w-3/4 h-auto"
+              src="./assets/img/flower_border_2.svg"
+            />
+          </div>
+        </div>
+        <div class="row" id="welcome">
+          <div class="s12 flex justify-center">
+            <p class="berkshire-swash p9">Welcome</p>
           </div>
         </div>
       </div>

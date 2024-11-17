@@ -33,6 +33,13 @@ body {
   font-weight: bold;
 }
 
+.berkshire-swash {
+  font-family: "Berkshire Swash", serif;
+  font-weight: bold;
+  font-style: normal;
+  text-shadow: 1px 2px 2px rgb(0 0 0 / 0.6);
+}
+
 .divider {
   border-top: 2px solid black;
   margin-top: 1.5rem;
@@ -99,6 +106,11 @@ body {
   z-index: 2;
 }
 
+.nav-bg {
+  border: 3px solid black;
+  box-shadow: black;
+}
+
 .absolute {
   position: absolute;
 }
@@ -113,7 +125,7 @@ body {
 }
 
 .text-white {
-  color: white;
+  color: white !important;
 }
 
 .text-center {
