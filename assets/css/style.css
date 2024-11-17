@@ -3,12 +3,14 @@
   src: url("../fonts/sweet_candies/Sweet\ Candies.otf");
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: auto; /* Ensure content can scroll */
-  background-color: rgba(245, 234, 207, 0.37);
+  background-color: rgba(245, 234, 207, 0.2);
+  overflow-x: hidden;
+  scroll-behavior: smooth; /* Native smooth scrolling */
 }
 
 .top_border {
@@ -53,54 +55,69 @@ html, body {
   transition: background-color 0.3s ease; /* Optional: smooth color transition */
 }
 
-/* .hero {
+.hero-image {
   width: 100%;
-  height: auto;
-} */
+  height: 100%;
+}
 
 .content {
-  padding: 2rem;
-  margin-top: 100vh;
+  /* background-color: #f8f8f8; */
+  min-height: 200vh; /* Ensure enough space to scroll */
 }
 
 .hero-wrapper {
-  height: 100vh;  
+  height: 100vh;
 }
 
 .hero-banner {
-  position: fixed;
-  top: 0;
-  left: 0;
+  /* Sizing */
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 1;
-  transform-origin: center;
+  height: 100%;
+
+  /* Flexbox stuff */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Text styles */
+  text-align: center;
+
+  /* Background styles */
+  background-image: url(../img/hero_no_fog.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .hero-text {
-    margin-bottom: 33.5rem !important;
+  margin-bottom: 33.5rem !important;
+}
+
+.nav-fixed {
+  position: fixed;
+  z-index: 2;
 }
 
 .absolute {
-    position: absolute;
+  position: absolute;
 }
 
 .hover-state:hover {
-    border-radius: 50px;
-    background-color: blue;
+  border-radius: 50px;
+  background-color: blue;
 }
 
 .text-black {
-    color: black !important;
+  color: black !important;
 }
 
 .text-white {
-    color: white;
+  color: white;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .mt-1 {
@@ -144,43 +161,43 @@ html, body {
 }
 
 .ml-1 {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .ml-2 {
-    margin-left: 2rem;
+  margin-left: 2rem;
 }
 
 .ml-3 {
-    margin-left: 3rem;
+  margin-left: 3rem;
 }
 
 .ml-4 {
-    margin-left: 4rem;
+  margin-left: 4rem;
 }
 
 .ml-5 {
-    margin-left: 5rem;
+  margin-left: 5rem;
 }
 
 .mr-1 {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 .mr-2 {
-    margin-right: 2rem;
+  margin-right: 2rem;
 }
 
 .mr-3 {
-    margin-right: 3rem;
+  margin-right: 3rem;
 }
 
 .mr-4 {
-    margin-right: 4rem;
+  margin-right: 4rem;
 }
 
 .mr-5 {
-    margin-right: 5rem;
+  margin-right: 5rem;
 }
 
 .p1 {
@@ -224,7 +241,7 @@ html, body {
 }
 
 .h-3\/4 {
-    height: 75%;
+  height: 75%;
 }
 
 .h-auto {
@@ -236,11 +253,11 @@ html, body {
 }
 
 .w-3\/4 {
-    width: 75%;
+  width: 75%;
 }
 
 .w-auto {
-    width: auto;
+  width: auto;
 }
 
 .w-full {
@@ -252,11 +269,18 @@ html, body {
 }
 
 .justify-even {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .items-center {
-    align-items: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1500px) {
+  .hero-image {
+    height: 100%;
+    width: auto;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -265,7 +289,7 @@ html, body {
     width: 100%;
   }
 
-  .hero-banner {
+  /* .hero-banner {
     position: fixed;
     top: 0;
     left: 0;
@@ -274,7 +298,7 @@ html, body {
     overflow: hidden;
     z-index: 1;
     transform-origin: center;
-  }
+  } */
 
   .hero-image {
     width: auto;
