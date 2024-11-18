@@ -40,6 +40,14 @@ body {
   text-shadow: 1px 2px 2px rgb(0 0 0 / 0.6);
 }
 
+.caveat {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 .divider {
   border-top: 2px solid black;
   margin-top: 1.5rem;
@@ -99,6 +107,47 @@ body {
 
 .hero-text {
   margin-bottom: 33.5rem !important;
+}
+
+.met-wrapper {
+  position: relative;
+}
+
+.met-title {
+  top: 25%
+}
+
+.met-text {
+  top: 40%;
+}
+
+.second-date-img {
+  height: 30%;
+  width: 30%;
+  top: 55%;
+}
+
+.reveal-text {
+  top: 80%;
+}
+
+.reveal-bold {}
+
+.proposal-wrapper {
+  position: relative;
+}
+
+.proposal-bg {
+  height: 54%;
+  /* width: auto; */
+}
+
+.proposal-title {
+  top: 15%
+}
+
+.proposal-text {
+  top: 22%
 }
 
 .nav-fixed {
