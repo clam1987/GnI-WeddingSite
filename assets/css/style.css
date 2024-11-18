@@ -47,7 +47,6 @@ body {
   font-style: normal;
 }
 
-
 .divider {
   border-top: 2px solid black;
   margin-top: 1.5rem;
@@ -77,7 +76,7 @@ body {
 
 .content {
   /* background-color: #f8f8f8; */
-  min-height: 200vh; /* Ensure enough space to scroll */
+  min-height: 100vh; /* Ensure enough space to scroll */
 }
 
 .hero-wrapper {
@@ -114,40 +113,96 @@ body {
 }
 
 .met-title {
-  top: 25%
+  top: 25%;
 }
 
 .met-text {
   top: 40%;
+  width: 65%;
 }
 
 .second-date-img {
-  height: 30%;
-  width: 30%;
-  top: 55%;
+  max-width: 100%;
+  height: 23%;
+  width: 17%;
+  top: 53%;
 }
 
 .reveal-text {
   top: 80%;
 }
 
-.reveal-bold {}
+.reveal-bold {
+  font-size: 5rem;
+}
 
 .proposal-wrapper {
   position: relative;
+  clip-path: inset(0 50% 0 50%);
+  overflow: hidden; /* Prevent content from showing outside the bounds */
+  transition: clip-path 0.1s ease-in-out;
+  height: auto;
 }
 
 .proposal-bg {
-  height: 54%;
-  /* width: auto; */
+  height: auto;
+  width: 100%;
 }
 
 .proposal-title {
-  top: 15%
+  top: 25%;
 }
 
 .proposal-text {
-  top: 22%
+  top: 35%;
+  text-shadow: 1px 2px 2px rgb(0 0 0 / 0.6);
+}
+
+.proposal-text-end {
+  top: 74%;
+  text-shadow: 1px 2px 2px rgb(0 0 0 / 0.6);
+}
+
+.ring-img {
+  width: auto;
+  height: 26%;
+  top: 48%;
+}
+
+.bottom-border {
+  /* top: 64%; */
+}
+
+.carousel-container {
+  display: flex;
+  justify-self: center;
+  max-width: 100%;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.carousel-img {
+  width: 100%;
+  aspect-ratio: 16/8;
+  object-fit: cover;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.carousel-text {
+  font-family: "Berkshire Swash", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 1px 2px 2px rgb(0 0 0 / 0.6);
+  font-size: 3rem !important;
 }
 
 .nav-fixed {
@@ -164,9 +219,18 @@ body {
   position: absolute;
 }
 
+.invite {
+  margin-top: 7rem !important;
+  margin-bottom: 3rem !important;
+}
+
 .hover-state:hover {
   border-radius: 50px;
   background-color: blue;
+}
+
+.text-container {
+  width: 65%;
 }
 
 .text-black {

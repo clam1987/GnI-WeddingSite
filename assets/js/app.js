@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const nav = document.querySelector(".nav-wrapper");
-  const nav_item = document.querySelectorAll(".nav-item");
+  const carousel = document.querySelectorAll(".carousel");
   const banner = document.querySelector(".hero-banner");
   const navHeight = nav.getBoundingClientRect().height;
   const bannerHeight = banner.getBoundingClientRect().height;
@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const parallax = document.querySelectorAll(".parallax");
   const side_nav_instance = M.Sidenav.init(side_nav);
   const parallax_instance = M.Parallax.init(parallax);
+  const carousel_instance = M.Carousel.init(carousel, {
+    fullWidth: true,
+    indicators: true,
+  });
 
   // GSAP Hero Banner Animation
   gsap.registerPlugin(ScrollTrigger);
@@ -58,6 +62,28 @@ document.addEventListener("DOMContentLoaded", function () {
       trigger: ".hero-banner",
       start: "center", // Starts when the hero banner is out of view
       scrub: 2, // Smooth transition
+    },
+  });
+
+  gsap.from(".reveal-bold", {
+    opacity: 0,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: ".met-wrapper",
+      start: "top",
+      end: "center",
+      scrub: 2,
+    },
+  });
+
+  gsap.to(".proposal-wrapper", {
+    clipPath: "inset(0 0% 0 0%)", // Fully reveals the content
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".proposal-wrapper",
+      start: "top 90%", // Animation starts when the wrapper is 80% in view
+      end: "top 10%", // Animation completes before the wrapper leaves the viewport
+      scrub: 1, // Smoothly ties the animation to the scroll
     },
   });
 

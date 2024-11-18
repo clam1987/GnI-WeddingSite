@@ -15,9 +15,12 @@
       href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Nunito:wght@800&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.1.1/dist/css/materialize.min.css"
@@ -43,9 +46,7 @@
           <li><a class="bellota nav-item" href="#welcome">Welcome</a></li>
           <li><a class="bellota nav-item" href="#ourstory">Our Story</a></li>
           <li>
-            <a class="bellota nav-item" href="collapsible.html"
-              >Discover Vancouver</a
-            >
+            <a class="bellota nav-item" href="#discover">Discover Vancouver</a>
           </li>
           <li>
             <a class="bellota nav-item" href="mobile.html"
@@ -76,7 +77,7 @@
         alt="Flower Border Top"
       />
 
-      <div class="container page-start">
+      <div class="page-start">
         <div class="row flex justify-center">
           <div class="s12 candy p9">Ilene & Greg</div>
         </div>
@@ -119,9 +120,14 @@
         <div class="row">
           <div class="s3"></div>
           <div class="s6 l12 flex justify-center">
-            <p class="caveat p4 text-center">Welcome to our wedding website! Here you can find the most up to date information regarding
-              our wedding. Please check back for more updates closer to our date! If you have any questions,
-              please reach out to Ilene or Greg.</p>
+            <div class="text-container">
+              <p class="caveat p4 text-center">
+                Welcome to our wedding website! Here you can find the most up to
+                date information regarding our wedding. Please check back for
+                more updates closer to our date! If you have any questions,
+                please reach out to Ilene or Greg.
+              </p>
+            </div>
           </div>
           <div class="s3"></div>
         </div>
@@ -133,25 +139,112 @@
         <div class="met-wrapper">
           <div class="row" id="ourstory">
             <div class="s12 flex justify-center">
-              <img class="met-border" src="./assets/img/story_border.jpg" alt="Storyboard">
+              <img
+                class="met-border"
+                src="./assets/img/story_border.jpg"
+                alt="Storyboard"
+              />
               <p class="berkshire-swash absolute p6 met-title">How We Met</p>
-              <p class="caveat absolute p3 met-text">It started with a prompt that said, “if you’re a foodie, let’s taco about it” to which Greg suggested attending a baseball game. Greg suggested sitting in the center field section so “we” can catch a baseball. Illene told Greg “If by we you mean you, then yes. Greg Promised he would catch a baseball if it came flying at Ilene’s face.</p>
-              <img src="./assets/img/second_date_1.jpg" class="absolute circle responsive-img second-date-img">
-              <p class="caveat absolute p3 reveal-text">Greg kept his promise and caught the baseball which secured a <b class="reveal-bold">second date!</b></p>
+              <p class="caveat absolute p3 met-text">
+                It started with a prompt that said, “if you’re a foodie, let’s
+                taco about it” to which Greg suggested attending a baseball
+                game. Greg suggested sitting in the center field section so “we”
+                can catch a baseball. Illene told Greg “If by we you mean you,
+                then yes. Greg Promised he would catch a baseball if it came
+                flying at Ilene’s face.
+              </p>
+              <img
+                src="./assets/img/second_date_1.jpg"
+                class="absolute circle second-date-img"
+              />
+              <p class="caveat absolute p3 reveal-text">
+                Greg kept his promise and caught the baseball which secured a
+                <b class="reveal-bold">second date!</b>
+              </p>
             </div>
           </div>
         </div>
         <div class="proposal-wrapper">
           <div class="row">
             <div class="s12 flex justify-center">
-              <img src="./assets/img/proposal_bg_side.jpg" alt="Proposal Background" class="proposal-bg">
-              <p class="berkshire-swash absolute p6 proposal-title text-white">The Proposal</p>
-              <p class="caveat absolute p3 proposal-text text-white">Ilene entered a chili cook off contest at work and won! On the same day, she also won an award
-                at work. When she returned home from the office, she told Greg all about her wins and
-                mentioned that she could have another title (a.k.a Mrs. Glinoga). Greg smiled and surprisingly
-                agreed with Ilene…and pulled out a ring!</p>
+              <img
+                src="./assets/img/proposal_bg_side.jpg"
+                alt="Proposal Background"
+                class="proposal-bg"
+              />
+              <p class="berkshire-swash absolute p6 proposal-title text-white">
+                The Proposal
+              </p>
+              <p
+                class="caveat absolute p3 proposal-text text-white text-center text-container"
+              >
+                Ilene entered a chili cook off contest at work and won! On the
+                same day, she also won an award at work. When she returned home
+                from the office, she told Greg all about her wins and mentioned
+                that she could have another title (a.k.a Mrs. Glinoga). Greg
+                smiled and surprisingly agreed with Ilene…and pulled out a ring!
+              </p>
+              <img
+                src="./assets/img/ring.jpg"
+                alt="ring"
+                class="ring-img absolute"
+              />
+              <p
+                class="caveat absolute p3 proposal-text-end text-white text-center"
+              >
+                We are so excited to celebrate this next chapter in our lives
+                with you, see you in July!
+              </p>
             </div>
           </div>
+        </div>
+        <img
+          src="./assets/img/story_border_bottom.jpg"
+          alt="bottom border"
+          class="bottom-border"
+        />
+      </div>
+      <div class="row mt-2" id="discover">
+        <div class="s12 flex justify-center">
+          <p class="berkshire-swash p8">Discover Vancouver!</p>
+        </div>
+      </div>
+
+      <div class="carousel carousel-slider carousel-container mb-5 mt-5">
+        <a class="carousel-item" href="#one!">
+          <div class="carousel-overlay">
+            <p class="white-text carousel-text">Becaon Hill Park</p>
+          </div>
+          <img class="carousel-img" src="./assets/img/beacon_hill.jpg"
+        /></a>
+        <a class="carousel-item" href="#two!">
+          <div class="carousel-overlay">
+            <p class="white-text carousel-text">Dallas Road</p>
+          </div>
+          <img class="carousel-img" src="./assets/img/dallas_road.jpg"
+        /></a>
+        <a class="carousel-item" href="#three!">
+          <div class="carousel-overlay">
+            <p class="white-text carousel-text">Ogden Point</p>
+          </div>
+          <img class="carousel-img" src="./assets/img/ogden_point.jpg"
+        /></a>
+        <a class="carousel-item" href="#four!">
+          <div class="carousel-overlay">
+            <p class="white-text carousel-text">Inner Harbor</p>
+          </div>
+          <img class="carousel-img" src="./assets/img/inner_harbor.jpg"
+        /></a>
+      </div>
+
+      <div class="row invite">
+        <div class="s12 flex justify-center">
+          <img src="./assets/img/wedding_invite.jpg" alt="Wedding Invitation" />
+        </div>
+      </div>
+      <div class="row mt-5 mb-5">
+        <div class="s12 flex justify-center">
+          <a tabindex="0" class="btn elevated rounded">RSVP</a>
         </div>
       </div>
     </div>
