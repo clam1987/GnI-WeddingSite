@@ -570,6 +570,17 @@ body {
     height: 100%;
     width: 100%;
   }
+
+  .second-date-img {
+    max-width: 100%;
+    height: 23%;
+    width: 20%;
+    top: 56%;
+  }
+
+  .reveal-text {
+    top: 78%
+  }
 }
 
 @media only screen and (max-width: 1280px) {
