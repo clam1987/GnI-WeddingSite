@@ -32,24 +32,35 @@
     <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.1.1/dist/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
     <!-- For when I want to use parallax effect -->
     <!-- <div class="parallax"><img src="images/parallax1.jpg"></div> -->
-    <nav class="transparent z-depth-0 nav-fixed">
+    <nav class="transparent z-depth-0 nav-fixed nav-main">
       <div class="nav-wrapper">
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"
           ><i class="material-icons">menu</i></a
         >
         <ul class="flex justify-even hide-on-med-and-down">
-          <li><a class="bellota nav-item" href="#welcome">Welcome</a></li>
-          <li><a class="bellota nav-item" href="#ourstory">Our Story</a></li>
           <li>
-            <a class="bellota nav-item" href="#discover">Discover Vancouver</a>
+            <a class="bellota nav-item" href="#" data-target="#welcome"
+              >Welcome</a
+            >
           </li>
           <li>
-            <a class="bellota nav-item" href="mobile.html"
+            <a class="bellota nav-item" href="#" data-target="#our_story"
+              >Our Story</a
+            >
+          </li>
+          <li>
+            <a class="bellota nav-item" href="#" data-target="#discover"
+              >Discover Vancouver</a
+            >
+          </li>
+          <li>
+            <a class="bellota nav-item" href="#" data-target="#wedding_invite"
               >Wedding Invitation</a
             >
           </li>
@@ -58,15 +69,17 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
+      <li><a href="#" data-target="#welcome">Welcome</a></li>
+      <li><a href="#" data-target="#our_story">Our Story</a></li>
+      <li><a href="#" data-target="#discover">Discover Vancouver</a></li>
+      <li><a href="#" data-target="#wedding_invite">Wedding Invitation</a></li>
     </ul>
 
     <div class="hero-banner flex justify-center items-center">
       <div class="row flex justify-center text-center mb-5 hero-text">
-        <div class="s12 candy p9 text-white">We're Getting Married!</div>
+        <div class="s12 candy p9 text-white title-text">
+          We're Getting Married!
+        </div>
       </div>
     </div>
 
@@ -88,13 +101,15 @@
           <div class="s12 bellota"></div>
         </div>
         <div class="row flex justify-center">
-          <div class="s12 bellota mt-2 p2">Sea Cider Farm & House</div>
+          <div class="s12 bellota mt-2 p2 wedding_location">
+            Sea Cider Farm & House
+          </div>
         </div>
         <div class="row flex justify-center mt-1 mb-1">
-          <div class="s12 bellota p5">July 4th, 2025</div>
+          <div class="s12 bellota p5 wedding_date">July 4th, 2025</div>
         </div>
         <div class="row flex justify-center mt-1 mb-1">
-          <div class="s12 bellota p2">Victoria, BC</div>
+          <div class="s12 bellota p2 wedding_location">Victoria, BC</div>
         </div>
         <div class="row flex justify-center">
           <div class="s12 divider"></div>
@@ -104,24 +119,24 @@
             <img class="responsive-img hero" src="./assets/img/hero.jpg" />
           </div>
         </div>
-        <div class="row">
+        <div class="row" id="welcome">
           <div class="s12 flex justify-center">
             <img
-              class="responsive-img w-3/4 h-auto"
+              class="responsive-img w-3/4 h-auto bottom-border"
               src="./assets/img/flower_border_2.svg"
             />
           </div>
         </div>
-        <div class="row" id="welcome">
+        <div class="row">
           <div class="s12 flex justify-center">
-            <p class="berkshire-swash p8">Welcome</p>
+            <p class="berkshire-swash p8 welcome-title">Welcome</p>
           </div>
         </div>
         <div class="row">
           <div class="s3"></div>
-          <div class="s6 l12 flex justify-center">
+          <div class="s12 flex justify-center">
             <div class="text-container">
-              <p class="caveat p4 text-center">
+              <p class="caveat p4 text-center welcome-text">
                 Welcome to our wedding website! Here you can find the most up to
                 date information regarding our wedding. Please check back for
                 more updates closer to our date! If you have any questions,
@@ -131,9 +146,9 @@
           </div>
           <div class="s3"></div>
         </div>
-        <div class="row" id="ourstory">
+        <div class="row" id="our_story">
           <div class="s12 flex justify-center">
-            <p class="berkshire-swash p8">Our Story</p>
+            <p class="berkshire-swash p8 our_story">Our Story</p>
           </div>
         </div>
         <div class="met-wrapper">
@@ -237,16 +252,28 @@
         /></a>
       </div>
 
-      <div class="row invite">
+      <div class="row invite" id="wedding_invite">
         <div class="s12 flex justify-center">
           <img src="./assets/img/wedding_invite.jpg" alt="Wedding Invitation" />
         </div>
       </div>
       <div class="row mt-5 mb-5">
         <div class="s12 flex justify-center">
-          <a tabindex="0" class="btn elevated rounded">RSVP</a>
+          <a
+            class="button-33"
+            href="mailto:gglinoga@gmail.com?subject=RSVP Wedding!&body=Are you attending and will you have a guest?"
+            role="button"
+            >RSVP</a
+          >
         </div>
       </div>
+    </div>
+
+    <div class="m-backtotop" aria-hidden="true">
+      <div class="arrow">
+        <span class="material-icons"> arrow_drop_up </span>
+      </div>
+      <div class="text">Back to top</div>
     </div>
     <script src="./assets/js/app.js"></script>
   </body>

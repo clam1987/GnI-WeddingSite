@@ -119,6 +119,7 @@ body {
 .met-text {
   top: 40%;
   width: 65%;
+  text-align: center;
 }
 
 .second-date-img {
@@ -130,6 +131,7 @@ body {
 
 .reveal-text {
   top: 80%;
+  text-align: center;
 }
 
 .reveal-bold {
@@ -156,9 +158,11 @@ body {
 .proposal-text {
   top: 35%;
   text-shadow: 1px 2px 2px rgb(0 0 0 / 0.6);
+  text-align: center;
 }
 
 .proposal-text-end {
+  text-align: center;
   top: 74%;
   text-shadow: 1px 2px 2px rgb(0 0 0 / 0.6);
 }
@@ -167,6 +171,7 @@ body {
   width: auto;
   height: 26%;
   top: 48%;
+  border-radius: 5px;
 }
 
 .bottom-border {
@@ -205,6 +210,139 @@ body {
   font-size: 3rem !important;
 }
 
+/* CSS */
+.button-33 {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-33:hover {
+  box-shadow: rgba(75, 76, 76, 0.35) 0 -25px 18px -14px inset,
+    rgba(255, 255, 255, 0.781) 0 1px 2px, rgba(255, 255, 255, 0.25) 0 2px 4px,
+    rgba(255, 255, 255, 0.25) 0 4px 8px, rgba(255, 255, 255, 0.25) 0 8px 16px,
+    rgba(255, 255, 255, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.m-backtotop {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  bottom: -50px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: #222;
+  border-radius: 25px;
+  text-align: center;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  overflow: hidden;
+  color: #fff;
+}
+.m-backtotop.active {
+  bottom: 15px;
+  opacity: 1;
+}
+.m-backtotop > div {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.m-backtotop > div.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  opacity: 1;
+}
+.m-backtotop > div.text {
+  font-size: 5px;
+  font-size: 0.5rem;
+  line-height: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-family: "Open Sans", sans-serif;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(50%) translateX(-50%);
+  opacity: 0;
+  margin-top: 1px;
+}
+.m-backtotop:hover {
+  transform: scale(1.1);
+  bottom: 20px;
+  cursor: pointer;
+  background: black;
+  box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
+}
+.m-backtotop:hover > div.arrow {
+  transform: translateY(-150%) translateX(-50%);
+  opacity: 0;
+}
+.m-backtotop:hover > div.text {
+  transform: translateY(-50%) translateX(-50%);
+  opacity: 1;
+}
+
 .nav-fixed {
   position: fixed;
   z-index: 2;
@@ -222,6 +360,7 @@ body {
 .invite {
   margin-top: 7rem !important;
   margin-bottom: 3rem !important;
+  border-radius: 5px;
 }
 
 .hover-state:hover {
@@ -231,6 +370,10 @@ body {
 
 .text-container {
   width: 65%;
+}
+
+.hidden {
+  display: none;
 }
 
 .text-black {
@@ -401,7 +544,74 @@ body {
   align-items: center;
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 3840) {
+  .hero-image {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 2560px) {
+  .hero-image {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 2048px) {
+  .hero-image {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1920px) {
+  .hero-image {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .hero-image {
+    height: 100%;
+    width: auto;
+  }
+
+  .second-date-img {
+    max-width: 100%;
+    height: 21%;
+    width: 23%;
+    top: 57%;
+  }
+
+  .met-text {
+    top: 40%;
+    width: 60%;
+    text-align: center;
+  }
+
+  .ring-img {
+    top: 48%;
+  }
+
+  .proposal-title {
+    top: 20%;
+  }
+
+  .proposal-text {
+    top: 34%;
+    font-size: 1.5rem;
+    width: 66%;
+  }
+
+  .proposal-text-end {
+    top: 73%;
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 760px) {
   .hero-image {
     height: 100%;
     width: auto;
@@ -410,7 +620,15 @@ body {
 
 @media only screen and (max-width: 600px) {
   .top_border {
-    height: auto;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .title-text {
+    margin-bottom: 12rem;
+  }
+
+  .bottom-border {
     width: 100%;
   }
 
@@ -436,5 +654,91 @@ body {
 
   .candy {
     font-size: 4rem;
+  }
+
+  .wedding_location {
+    font-size: 1rem;
+  }
+
+  .wedding_date {
+    font-size: 2rem;
+  }
+
+  .welcome-title {
+    font-size: 4rem;
+  }
+
+  .welcome-text {
+    font-size: 1.5rem;
+  }
+
+  .our_story {
+    font-size: 4rem;
+  }
+
+  .met-wrapper {
+    height: 720px;
+  }
+
+  .met-border {
+    height: 50%;
+  }
+
+  .met-title {
+    font-size: 3rem;
+    top: 6%;
+  }
+
+  .met-text {
+    font-size: 1.3rem;
+    top: 19%;
+    width: 100%;
+  }
+
+  .second-date-img {
+    max-width: 100%;
+    height: 27%;
+    width: 50%;
+    top: 43%;
+  }
+
+  .reveal-text {
+    top: 72%;
+    font-size: 1.2rem;
+  }
+
+  .reveal-bold {
+    font-size: 3rem;
+  }
+
+  .proposal-bg {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  .proposal-title {
+    font-size: 3rem;
+    top: 25%;
+  }
+
+  .proposal-text {
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .second-date-img {
+    max-width: 100%;
+    height: 27%;
+    width: 50%;
+    top: 43%;
+  }
+
+  .reveal-text {
+    top: 72%;
+    font-size: 1.2rem;
+  }
+
+  .reveal-bold {
+    font-size: 3rem;
   }
 }
