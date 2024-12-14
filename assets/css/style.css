@@ -174,10 +174,6 @@ body {
   border-radius: 5px;
 }
 
-.bottom-border {
-  /* top: 64%; */
-}
-
 .carousel-container {
   display: flex;
   justify-self: center;
