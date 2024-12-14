@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const heightOffset = 20;
   const toggle_height = window.outerHeight;
   const back_to_top_btn = document.querySelector(".m-backtotop");
+  const rsvp_btn = document.querySelector(".m-rsvp");
 
   const side_nav = document.querySelectorAll(".sidenav");
   const parallax = document.querySelectorAll(".parallax");
@@ -97,8 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.addEventListener("scroll", () => {
     if (document.body.scrollTop > toggle_height) {
       back_to_top_btn.classList.add("active");
+      rsvp_btn.classList.add("active");
     } else {
       back_to_top_btn.classList.remove("active");
+      rsvp_btn.classList.remove("active");
     }
   });
 

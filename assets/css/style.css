@@ -222,7 +222,7 @@ body {
   cursor: pointer;
   display: inline-block;
   font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-  padding: 7px 20px;
+  padding: 15px 30px;
   text-align: center;
   text-decoration: none;
   transition: all 250ms;
@@ -295,6 +295,19 @@ body {
   overflow: hidden;
   color: #fff;
 }
+
+.m-rsvp {
+  position: fixed;
+  bottom: -50px;
+  right: 48%;
+  opacity: 0;
+}
+
+.m-rsvp.active {
+  opacity: 1;
+  bottom: 15px;
+}
+
 .m-backtotop.active {
   bottom: 15px;
   opacity: 1;
@@ -343,6 +356,22 @@ body {
   opacity: 1;
 }
 
+.attire-wrapper {
+  position: relative;
+  height: auto;
+}
+
+.attire-text {
+  top: 28%;
+  width: 25%;
+  right: 32%;
+}
+
+.attire-title {
+  top: 17%;
+  left: 47%;
+}
+
 .nav-fixed {
   position: fixed;
   z-index: 2;
@@ -373,7 +402,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  background-color: #222 !important;
 }
 
 .text-black {
@@ -540,6 +569,10 @@ body {
   justify-content: space-evenly;
 }
 
+.justify-end {
+  justify-content: end;
+}
+
 .items-center {
   align-items: center;
 }
@@ -579,7 +612,7 @@ body {
   }
 
   .reveal-text {
-    top: 78%
+    top: 78%;
   }
 }
 
@@ -620,12 +653,104 @@ body {
     top: 73%;
     font-size: 1.5rem;
   }
+
+  .carousel-overlay {
+    top: 40%;
+  }
+
+  .attire-title {
+    top: 18%;
+    left: 40%;
+  }
+
+  .attire-text {
+    top: 28%;
+    width: 40%;
+    right: 20%;
+  }
 }
 
-@media only screen and (max-width: 760px) {
-  .hero-image {
-    height: 100%;
-    width: auto;
+@media only screen and (max-width: 1024px) {
+  .hero-text {
+    margin-bottom: 60.5rem !important;
+  }
+
+  .ring-img {
+    top: 52%;
+  }
+
+  .second-date-img {
+    width: 30%;
+    top: 59%;
+  }
+
+  .proposal-bg {
+    content: url("../img/proposal_bg.jpg");
+  }
+
+  .proposal-title {
+    top: 10%;
+    font-size: 5rem;
+  }
+
+  .proposal-text {
+    top: 24%;
+    font-size: 2.25rem;
+    width: 58%;
+  }
+
+  .proposal-text-end {
+    top: 87%;
+    font-size: 2.5rem;
+    width: 43%;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .hero-text {
+    margin-bottom: 49.5rem !important;
+  }
+
+  .met-title {
+    top: 15%;
+  }
+
+  .met-text {
+    top: 25%;
+    width: 85%;
+    font-size: 2.5rem !important;
+  }
+
+  .second-date-img {
+    height: 21%;
+    width: 39%;
+    top: 49%;
+  }
+
+  .reveal-text {
+    top: 73%;
+    font-size: 2.5rem;
+  }
+
+  .ring-img {
+    top: 56.5%;
+  }
+
+  .proposal-text-end {
+    top: 83%;
+    font-size: 2.25rem;
+    width: 41%;
+  }
+
+  .attire-title {
+    top: 17%;
+    left: 35%;
+  }
+
+  .attire-text {
+    top: 28%;
+    width: 60%;
+    right: 5%;
   }
 }
 
@@ -724,7 +849,7 @@ body {
 
   .proposal-bg {
     width: 100vw;
-    height: 50vh;
+    height: 100vh;
   }
 
   .proposal-title {
@@ -733,15 +858,82 @@ body {
   }
 
   .proposal-text {
+    top: 19%;
+    font-size: 1.25rem;
+    width: 59%;
+  }
+
+  .ring-img {
+    width: auto;
+    height: 26%;
+    top: 48%;
+    border-radius: 5px;
+  }
+
+  .proposal-text-end {
+    top: 76%;
+    font-size: 1.5rem;
+    width: 32%;
+  }
+
+  .discover {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  .carousel-container {
+    height: 12rem !important;
+    width: 85% !important;
+  }
+
+  .carousel-overlay {
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .carousel-text {
+    font-family: "Berkshire Swash", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 1px 2px 2px rgb(0 0 0 / 0.6);
+    font-size: 2rem !important;
+  }
+
+  .wedding_invite {
+    width: 100%;
+    height: auto;
   }
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 450px) {
+  .title-text {
+    margin-bottom: 0rem;
+    margin-top: 5rem;
+  }
+
+  .hero-text {
+    margin-bottom: 44.5rem !important;
+  }
+
+  .discover_ch_title {
+    font-size: 3rem;
+  }
+
   .second-date-img {
     max-width: 100%;
     height: 27%;
     width: 50%;
     top: 43%;
+  }
+
+  .proposal-title {
+    font-size: 2rem;
+    top: 10%;
   }
 
   .reveal-text {
@@ -751,5 +943,91 @@ body {
 
   .reveal-bold {
     font-size: 3rem;
+  }
+
+  .ring-img {
+    width: auto;
+    height: 26%;
+    top: 46.5%;
+    border-radius: 5px;
+  }
+
+  .attire-board {
+    width: 100%;
+  }
+
+  .attire-title {
+    top: 10%;
+    left: 36%;
+    font-size: 2rem;
+  }
+
+  .attire-text {
+    top: 20%;
+    width: 65%;
+    right: 0%;
+    font-size: 1.25rem !important;
+  }
+
+  .m-rsvp {
+    right: 39%;
+  }
+}
+
+@media screen and (max-width: 389px) and (min-width: 359px) {
+  .second-date-img {
+    max-width: 100%;
+    height: 27%;
+    width: 50%;
+    top: 43%;
+  }
+
+  .hero-text {
+    margin-bottom: 33.5rem !important;
+  }
+
+  .ring-img {
+    height: 29%;
+    top: 56%;
+  }
+
+  .reveal-text {
+    top: 72%;
+    font-size: 1.2rem;
+  }
+
+  .reveal-bold {
+    font-size: 3rem;
+  }
+
+  .proposal-text {
+    width: 58%;
+  }
+
+  .proposal-text-end {
+    top: 84%;
+    font-size: 1.25rem;
+    width: 46%;
+  }
+
+  .attire-board {
+    width: 100%;
+  }
+
+  .attire-title {
+    top: 10%;
+    left: 36%;
+    font-size: 2rem;
+  }
+
+  .attire-text {
+    top: 20%;
+    width: 65%;
+    right: 0%;
+    font-size: 1.25rem !important;
+  }
+
+  .m-rsvp {
+    right: 36%;
   }
 }
