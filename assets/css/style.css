@@ -971,7 +971,7 @@ body {
 }
 
 @media screen and (max-width: 391px) and (min-width: 389px) {
-  /* .ring-img {
+  .ring-img {
     top: 55.5%;
   }
 
@@ -982,7 +982,7 @@ body {
   .proposal-text-end {
     top: 80%;
     width: 43%;
-  } */
+  }
 }
 
 @media screen and (max-width: 388px) and (min-width: 359px) {
