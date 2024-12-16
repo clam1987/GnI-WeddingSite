@@ -963,7 +963,7 @@ body {
   }
 
   .discover_ch_title {
-    font-size: 3rem;
+    font-size: 2.25rem;
   }
 
   .second-date-img {
@@ -1033,6 +1033,10 @@ body {
     top: 55.5%;
   }
 
+  .second-date-img {
+    width: 49%;
+  }
+
   .proposal-text {
     top: 18%;
     font-size: 1.35rem;
@@ -1046,6 +1050,10 @@ body {
 
   .carousel-text {
     font-size: 1.5rem;
+  }
+
+  .discover_ch_title {
+    font-size: 2.25rem;
   }
 }
 
