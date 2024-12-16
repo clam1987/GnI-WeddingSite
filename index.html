@@ -38,7 +38,7 @@
   <body>
     <!-- For when I want to use parallax effect -->
     <!-- <div class="parallax"><img src="images/parallax1.jpg"></div> -->
-    <nav class="transparent z-depth-0 nav-fixed nav-main">
+    <nav class="transparent z-depth-0 nav-fixed nav-main hidden">
       <div class="nav-wrapper">
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"
           ><i class="material-icons">menu</i></a
@@ -64,9 +64,6 @@
               >Wedding Invitation</a
             >
           </li>
-          <li>
-            <a class="bellota nav-item" href="#" data-target="#rsvp">RSVP</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -88,11 +85,11 @@
     </div>
 
     <div class="content">
-      <img
-        class="responsive-img top_border"
-        src="./assets/img/top_flower_border_2.jpg"
-        alt="Flower Border Top"
-      />
+      <!-- <img
+          class="responsive-img top_border"
+          src="./assets/img/top_flower_border_2.jpg"
+          alt="Flower Border Top"
+        /> -->
 
       <div class="page-start">
         <div class="row flex justify-center">
@@ -235,97 +232,107 @@
         </div>
       </div>
 
-      <div class="carousel carousel-slider carousel-container mb-5 mt-5">
-        <a class="carousel-item" href="#one!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Becaon Hill Park</p>
+      <div class="row">
+        <div class="s12 flex justify-center">
+          <div class="carousel carousel-slider carousel-container mb-5 mt-5">
+            <a class="carousel-item" href="#one!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Becaon Hill Park</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/beacon_hill.jpg"
+            /></a>
+            <a class="carousel-item" href="#two!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Dallas Road</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/dallas_road.jpg"
+            /></a>
+            <a class="carousel-item" href="#three!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Ogden Point</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/ogden_point.jpg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Inner Harbor</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/inner_harbor.jpg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Bug Zoo</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/bug_zoo.jpg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Royal BC Museum</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/royalbc.jpg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Fisherman's Wharf</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/fisherman_wharf.jpg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Chinatown</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/chinatown.jpg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Mt. Douglas</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/mount_douglas.jpeg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Craigdarroch Castle</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/craig_castle.jpg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Abkhazi Garden</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/abkhazi.jpg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">
+                  Legislative Assembly Of BC
+                </p>
+              </div>
+              <img class="carousel-img" src="./assets/img/legislature.jpg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">
+                  Legislative Assembly Of BC
+                </p>
+              </div>
+              <img class="carousel-img" src="./assets/img/water_taxi.jpg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">
+                  Friends and Family Bakery
+                </p>
+              </div>
+              <img class="carousel-img" src="./assets/img/bakery.jpg"
+            /></a>
+            <a class="carousel-item" href="#four!">
+              <div class="carousel-overlay">
+                <p class="white-text carousel-text">Empire Donuts</p>
+              </div>
+              <img class="carousel-img" src="./assets/img/empire.jpg"
+            /></a>
           </div>
-          <img class="carousel-img" src="./assets/img/beacon_hill.jpg"
-        /></a>
-        <a class="carousel-item" href="#two!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Dallas Road</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/dallas_road.jpg"
-        /></a>
-        <a class="carousel-item" href="#three!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Ogden Point</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/ogden_point.jpg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Inner Harbor</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/inner_harbor.jpg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Bug Zoo</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/bug_zoo.jpg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Royal BC Museum</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/royalbc.jpg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Fisherman's Wharf</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/fisherman_wharf.jpg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Chinatown</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/chinatown.jpg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Mt. Douglas</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/mount_douglas.jpeg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Craigdarroch Castle</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/craig_castle.jpg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Abkhazi Garden</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/abkhazi.jpg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Legislative Assembly Of BC</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/legislature.jpg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Legislative Assembly Of BC</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/water_taxi.jpg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Friends and Family Bakery</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/bakery.jpg"
-        /></a>
-        <a class="carousel-item" href="#four!">
-          <div class="carousel-overlay">
-            <p class="white-text carousel-text">Empire Donuts</p>
-          </div>
-          <img class="carousel-img" src="./assets/img/empire.jpg"
-        /></a>
+        </div>
       </div>
 
       <div class="row mt-2" id="sidney">
