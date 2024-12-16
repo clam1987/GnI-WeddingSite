@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // GSAP Hero Banner Animation
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+  ScrollTrigger.config({ ignoreMobileResize: true });
 
   let hasScrolled = false; // Flag to track if user has scrolled
   const body = document.body;
