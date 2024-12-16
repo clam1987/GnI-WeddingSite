@@ -23,55 +23,124 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // GSAP Hero Banner Animation
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.registerPlugin(ScrollToPlugin);
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-  gsap.to(".hero-banner", {
-    scale: 0.5, // Shrinks to 80% of original size
-    yPercent: 50, // Moves it upward for parallax
+  let hasScrolled = false; // Flag to track if user has scrolled
+  const body = document.body;
+
+  function disableScroll() {
+    console.log("disabled func", hasScrolled);
+    body.style.overflow = "hidden";
+  }
+
+  function enableScroll() {
+    console.log("enabled func", hasScrolled);
+    body.style.overflowX = "hidden";
+    body.style.overflowY = "scroll";
+  }
+
+  // Timeline for the animations
+  const timeline = gsap.timeline({
+    paused: true,
+    onStart: disableScroll, // Disable scrolling when animation starts
+    onComplete: enableScroll, // Re-enable scrolling when animation completes
+    onReverseComplete: enableScroll, // Re-enable scrolling after reverse animation
+  });
+
+  // Hero Banner Fade-Out
+  timeline.to(".hero-banner", {
+    scale: 0,
     opacity: 0,
-    ease: "power1.out",
-    scrollTrigger: {
-      trigger: ".hero-banner",
-      start: "top top", // When the hero is at the top of the viewport
-      end: "bottom top", // When the hero is completely out of view
-      scrub: 2, // Smooth scrubbing effect
+    duration: 1.5,
+    ease: "power2.out",
+  });
+
+  // Snap to Content Section
+  timeline.to(
+    document.body,
+    {
+      scrollTo: { y: ".top_border", autoKill: false }, // Scroll to content section
+      duration: 2,
+      ease: "power2.inOut",
+    },
+    "<"
+  );
+
+  ScrollTrigger.create({
+    trigger: ".top_border",
+    start: "top-=5 top", // Trigger when the content section is fully in view
+    onEnter: () => {
+      if (!timeline.isActive()) {
+        console.log("entering");
+        timeline.play(); // Play animation to snap to content and hide hero banner
+      }
+    },
+    onEnterBack: () => {
+      if (!timeline.isActive()) {
+        console.log("enter back");
+        timeline.reverse(); // Reverse animation to show hero banner again
+      }
+    },
+    onLeaveBack: () => {
+      if (!timeline.isActive()) {
+        console.log("leaving back");
+        timeline.reverse(); // Ensure hero banner reappears when scrolling up
+      }
+    },
+    onLeave: () => {
+      if (!timeline.isActive()) {
+        console.log("leaving");
+        timeline.play(); // Ensure content snaps into view when scrolling down
+      }
     },
   });
 
-  gsap.to(".hero-text", {
-    opacity: 0, // Fades out the text
-    y: 50, // Moves the text up slightly
-    ease: "power1.out",
-    scrollTrigger: {
-      trigger: ".hero-banner",
-      start: "top top",
-      end: "bottom top",
-      scrub: 2,
-    },
-  });
+  // gsap.to(".hero-banner", {
+  //   scale: 0.5, // Shrinks to 80% of original size
+  //   yPercent: 50, // Moves it upward for parallax
+  //   opacity: 0,
+  //   ease: "power1.out",
+  //   scrollTrigger: {
+  //     trigger: ".hero-banner",
+  //     start: "top top", // When the hero is at the top of the viewport
+  //     end: "bottom top", // When the hero is completely out of view
+  //     scrub: 2, // Smooth scrubbing effect
+  //   },
+  // });
 
-  gsap.from(".top_border", {
-    opacity: 0, // Start invisible
-    scale: 0.8, // Start smaller
-    ease: "power1.out",
-    scrollTrigger: {
-      trigger: ".hero-banner",
-      start: "center", // Starts when the hero banner is out of view
-      scrub: 2, // Smooth transition
-    },
-  });
+  // gsap.to(".hero-text", {
+  //   opacity: 0, // Fades out the text
+  //   y: 50, // Moves the text up slightly
+  //   ease: "power1.out",
+  //   scrollTrigger: {
+  //     trigger: ".hero-banner",
+  //     start: "top top",
+  //     end: "bottom top",
+  //     scrub: 2,
+  //   },
+  // });
 
-  gsap.from(".page-start", {
-    opacity: 0, // Start invisible
-    scale: 0.8, // Start smaller
-    ease: "power1.out",
-    scrollTrigger: {
-      trigger: ".hero-banner",
-      start: "center", // Starts when the hero banner is out of view
-      scrub: 2, // Smooth transition
-    },
-  });
+  // gsap.from(".top_border", {
+  //   opacity: 0, // Start invisible
+  //   scale: 0.8, // Start smaller
+  //   ease: "power1.out",
+  //   scrollTrigger: {
+  //     trigger: ".hero-banner",
+  //     start: "center", // Starts when the hero banner is out of view
+  //     scrub: 2, // Smooth transition
+  //   },
+  // });
+
+  // gsap.from(".page-start", {
+  //   opacity: 0, // Start invisible
+  //   scale: 0.8, // Start smaller
+  //   ease: "power1.out",
+  //   scrollTrigger: {
+  //     trigger: ".hero-banner",
+  //     start: "center", // Starts when the hero banner is out of view
+  //     scrub: 2, // Smooth transition
+  //   },
+  // });
 
   gsap.from(".reveal-bold", {
     opacity: 0,
@@ -96,6 +165,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.body.addEventListener("scroll", () => {
+    if (!hasScrolled) {
+      hasScrolled = true;
+      timeline.play(); // Start the animation
+    }
+
     if (document.body.scrollTop > toggle_height) {
       back_to_top_btn.classList.add("active");
       rsvp_btn.classList.add("active");

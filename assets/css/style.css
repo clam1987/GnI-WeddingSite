@@ -11,7 +11,6 @@ body {
   background-color: rgba(255, 253, 243, 0.95);
   color: #000000;
   overflow-x: hidden;
-  scroll-behavior: smooth; /* Native smooth scrolling */
 }
 
 .top_border {
@@ -1031,6 +1030,10 @@ body {
     top: 80%;
     width: 43%;
     font-size: 1.35rem;
+  }
+
+  .carousel-text {
+    font-size: 1.5rem;
   }
 }
 
