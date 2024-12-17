@@ -248,9 +248,9 @@ document.addEventListener("DOMContentLoaded", function () {
     (entries) => {
       const [entry] = entries;
       if (!entry.isIntersecting) {
-        // nav.classList.add("hidden");
+        nav.classList.add("hidden");
       } else {
-        // nav.classList.remove("hidden");
+        nav.classList.remove("hidden");
       }
     },
     {

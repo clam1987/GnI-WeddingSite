@@ -629,6 +629,19 @@ body {
     height: 100%;
     width: 100%;
   }
+
+  .second-date-img {
+    width: 13%;
+  }
+
+  .attire-title {
+    left: 45%;
+  }
+
+  .attire-text {
+    width: 20%;
+    right: 35%;
+  }
 }
 
 @media only screen and (max-width: 2048px) {
@@ -752,11 +765,11 @@ body {
   }
 
   .met-title {
-    top: 15%;
+    top: 20%;
   }
 
   .met-text {
-    top: 25%;
+    top: 35%;
     width: 85%;
     font-size: 2.5rem;
   }
@@ -817,7 +830,7 @@ body {
     overflow: hidden;
     z-index: 1;
     transform-origin: center;
-  } */
+    } */
 
   .hero-image {
     width: auto;
@@ -841,7 +854,7 @@ body {
   }
 
   .welcome-title {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .welcome-text {
@@ -917,7 +930,7 @@ body {
   }
 
   .discover {
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: center;
   }
 
