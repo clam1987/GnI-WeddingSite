@@ -16,8 +16,8 @@ body {
 .top_border {
   /* transform: translate(0, -45%); */
   width: 100%;
-  /* height: auto; */
-  height: 100px;
+  height: auto;
+  /* height: 100px; */
   max-height: 300px;
   /* max-width: 1440px; */
 }
@@ -817,7 +817,7 @@ body {
 
 @media only screen and (max-width: 600px) {
   .top_border {
-    height: 100vh;
+    height: 15vh;
     width: 100%;
   }
 

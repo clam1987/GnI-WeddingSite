@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
   timeline.to(".hero-banner", {
     scale: 0,
     opacity: 0,
-    duration: 1.5,
+    duration: 2,
     ease: "power2.out",
   });
 
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body,
     {
       scrollTo: { y: ".top_border", autoKill: false }, // Scroll to content section
-      duration: 2,
+      duration: 1.25,
       ease: "power2.inOut",
     },
     "<"
@@ -195,7 +195,9 @@ document.addEventListener("DOMContentLoaded", function () {
     (entries) => {
       const [entry] = entries;
       if (!entry.isIntersecting) {
+        console.log("not intersecting");
       } else {
+        console.log("intersecting");
         gsap.fromTo(
           ".proposal-wrapper",
           {
@@ -209,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
       }
     },
-    { threshold: 0.4 }
+    { threshold: 0.2 }
   );
 
   const borderObserver = new IntersectionObserver(
