@@ -28,55 +28,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // GSAP Hero Banner Animation
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-  ScrollTrigger.config({ ignoreMobileResize: true });
-
-  let hasScrolled = false; // Flag to track if user has scrolled
-  let reverseScrolled = false;
-  const body = document.body;
-
-  function disableScroll() {
-    body.style.overflow = "hidden";
-  }
-
-  function enableScroll() {
-    body.style.overflowX = "hidden";
-    body.style.overflowY = "scroll";
-    hasScrolled = false;
-  }
-
-  // Timeline for the animations
-  const timeline = gsap.timeline({
-    paused: true,
-    onStart: disableScroll, // Disable scrolling when animation starts
-    onComplete: enableScroll, // Re-enable scrolling when animation completes
-    onReverseComplete: enableScroll, // Re-enable scrolling after reverse animation
+  ScrollTrigger.config({
+    ignoreMobileResize: true,
+    autoRefreshEvents: "load,DOMContentLoaded",
   });
 
-  // Hero Banner Fade-Out
-  timeline.to(".hero-banner", {
-    scale: 0,
-    opacity: 0,
-    duration: 2,
-    ease: "power2.out",
-  });
-
-  // Snap to Content Section
-  timeline.to(
-    document.body,
-    {
-      scrollTo: { y: ".top_border", autoKill: false }, // Scroll to content section
-      duration: 1.25,
-      ease: "power2.inOut",
-    },
-    "<"
-  );
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".hero-wrapper", // Pin the entire hero-wrapper
+        start: "top top", // When the top of the hero-wrapper hits the top of the viewport
+        end: "bottom top", // End pinning after scrolling 300px past the bottom
+        scrub: true, // Smooth scrolling effect
+        aniticiptePin: true,
+        pin: true, // Pin the hero-banner during scroll
+      },
+    })
+    .fromTo(
+      ".hero-banner",
+      { scale: 1, height: "100vh" }, // Initial state: full size
+      {
+        scale: 0,
+        height: "auto",
+        ease: "power2.out",
+      } // Final state: shrunk to match the image
+    );
 
   document.body.addEventListener("scroll", () => {
-    if (!hasScrolled) {
-      hasScrolled = true;
-      timeline.play(); // Start the animation
-    }
-
     if (document.body.scrollTop > toggle_height) {
       back_to_top_btn.classList.add("active");
       rsvp_btn.classList.add("active");
@@ -155,8 +133,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const [entry] = entries;
       if (!entry.isIntersecting) {
         nav.classList.add("hidden");
+        back_to_top_btn.classList.add("active");
+        rsvp_btn.classList.add("active");
       } else {
         nav.classList.remove("hidden");
+        back_to_top_btn.classList.remove("active");
+        rsvp_btn.classList.remove("active");
       }
     },
     {
@@ -194,10 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const propObserver = new IntersectionObserver(
     (entries) => {
       const [entry] = entries;
-      if (!entry.isIntersecting) {
-        console.log("not intersecting");
-      } else {
-        console.log("intersecting");
+      if (entry.isIntersecting) {
         gsap.fromTo(
           ".proposal-wrapper",
           {
@@ -214,23 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { threshold: 0.2 }
   );
 
-  const borderObserver = new IntersectionObserver(
-    (entries) => {
-      const [entry] = entries;
-      if (entry.isIntersecting && reverseScrolled) {
-        reverseScrolled = false;
-        timeline.reverse();
-      } else {
-        reverseScrolled = true;
-      }
-    },
-    {
-      threshold: 0,
-    }
-  );
-
   bannerObserver.observe(banner);
   dateImgObserver.observe(prop_wrapper);
   propObserver.observe(met_border);
-  borderObserver.observe(top_border);
 });
