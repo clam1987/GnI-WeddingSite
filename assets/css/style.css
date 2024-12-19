@@ -326,7 +326,6 @@ body {
 .m-rsvp {
   position: fixed;
   bottom: -50px;
-  right: 48%;
   opacity: 0;
 }
 
@@ -572,6 +571,10 @@ body {
 
 .p9 {
   font-size: 7rem;
+}
+
+.pb-7 {
+  padding-bottom: 3.5rem;
 }
 
 .flex {
@@ -1052,10 +1055,6 @@ body {
     right: 0%;
     font-size: 1.25rem;
   }
-
-  .m-rsvp {
-    right: 39%;
-  }
 }
 
 @media screen and (max-width: 400px) and (min-width: 389px) {
@@ -1139,9 +1138,5 @@ body {
     width: 65%;
     right: 0%;
     font-size: 1.25rem;
-  }
-
-  .m-rsvp {
-    right: 36%;
   }
 }
