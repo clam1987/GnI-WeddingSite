@@ -412,6 +412,10 @@ body {
   box-shadow: black;
 }
 
+.vis-none {
+  visibility: hidden;
+}
+
 .absolute {
   position: absolute;
 }
@@ -648,6 +652,10 @@ body {
   .hero-image {
     height: 100%;
     width: 100%;
+  }
+
+  .second-date-img {
+    width: 16%;
   }
 }
 

@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   const carousel = document.querySelectorAll(".carousel");
   const banner = document.querySelector(".hero-banner");
+  const prop_wrapper = document.querySelector(".proposal-wrapper");
+  const met_border = document.querySelector(".met-border");
+  const reveal_bold = document.querySelector(".reveal-bold");
   const navHeight = nav.getBoundingClientRect().height;
   const bannerHeight = banner.getBoundingClientRect().height;
   const heightOffset = 20;
@@ -30,12 +33,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
 
   function disableScroll() {
-    console.log("disabled func", hasScrolled);
+    // console.log("disabled func", hasScrolled);
     body.style.overflow = "hidden";
   }
 
   function enableScroll() {
-    console.log("enabled func", hasScrolled);
+    // console.log("enabled func", hasScrolled);
     body.style.overflowX = "hidden";
     body.style.overflowY = "scroll";
   }
@@ -72,25 +75,25 @@ document.addEventListener("DOMContentLoaded", function () {
     start: "top-=5 top", // Trigger when the content section is fully in view
     onEnter: () => {
       if (!timeline.isActive()) {
-        console.log("entering");
+        // console.log("entering");
         timeline.play(); // Play animation to snap to content and hide hero banner
       }
     },
     onEnterBack: () => {
       if (!timeline.isActive()) {
-        console.log("enter back");
+        // console.log("enter back");
         timeline.reverse(); // Reverse animation to show hero banner again
       }
     },
     onLeaveBack: () => {
       if (!timeline.isActive()) {
-        console.log("leaving back");
+        // console.log("leaving back");
         timeline.reverse(); // Ensure hero banner reappears when scrolling up
       }
     },
     onLeave: () => {
       if (!timeline.isActive()) {
-        console.log("leaving");
+        // console.log("leaving");
         timeline.play(); // Ensure content snaps into view when scrolling down
       }
     },
@@ -143,27 +146,16 @@ document.addEventListener("DOMContentLoaded", function () {
   //   },
   // });
 
-  gsap.from(".reveal-bold", {
-    opacity: 0,
-    ease: "power1.out",
-    scrollTrigger: {
-      trigger: ".met-wrapper",
-      start: "top",
-      end: "center",
-      scrub: 2,
-    },
-  });
-
-  gsap.to(".proposal-wrapper", {
-    clipPath: "inset(0 0% 0 0%)", // Fully reveals the content
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".proposal-wrapper",
-      start: "top 90%", // Animation starts when the wrapper is 80% in view
-      end: "top 10%", // Animation completes before the wrapper leaves the viewport
-      scrub: 1, // Smoothly ties the animation to the scroll
-    },
-  });
+  // gsap.to(".proposal-wrapper", {
+  //   clipPath: "inset(0 0% 0 0%)", // Fully reveals the content
+  //   ease: "power2.out",
+  //   scrollTrigger: {
+  //     trigger: ".proposal-wrapper",
+  //     start: "top 90%", // Animation starts when the wrapper is 80% in view
+  //     end: "top 10%", // Animation completes before the wrapper leaves the viewport
+  //     scrub: 1, // Smoothly ties the animation to the scroll
+  //   },
+  // });
 
   document.body.addEventListener("scroll", () => {
     if (!hasScrolled) {
@@ -248,8 +240,10 @@ document.addEventListener("DOMContentLoaded", function () {
     (entries) => {
       const [entry] = entries;
       if (!entry.isIntersecting) {
+        console.log("not intersecting");
         nav.classList.add("hidden");
       } else {
+        console.log("intersecting");
         nav.classList.remove("hidden");
       }
     },
@@ -260,5 +254,53 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   );
 
+  const dateImgObserver = new IntersectionObserver(
+    (entries) => {
+      const [entry] = entries;
+      if (!entry.isIntersecting) {
+        reveal_bold.classList.add("vis-none");
+      } else {
+        reveal_bold.classList.remove("vis-none");
+        gsap.fromTo(
+          ".reveal-bold",
+          {
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+            ease: "power1.out",
+            duration: 2,
+          }
+        );
+      }
+    },
+    {
+      threshold: 0,
+    }
+  );
+
+  const propObserver = new IntersectionObserver(
+    (entries) => {
+      const [entry] = entries;
+      if (!entry.isIntersecting) {
+      } else {
+        gsap.fromTo(
+          ".proposal-wrapper",
+          {
+            clipPath: "inset(0 50% 0 50%)", // Fully reveals the content
+          },
+          {
+            clipPath: "inset(0 0% 0 0%)", // Fully reveals the content
+            ease: "power2.out",
+            duration: 2,
+          }
+        );
+      }
+    },
+    { threshold: 0.4 }
+  );
+
   bannerObserver.observe(banner);
+  dateImgObserver.observe(prop_wrapper);
+  propObserver.observe(met_border);
 });
