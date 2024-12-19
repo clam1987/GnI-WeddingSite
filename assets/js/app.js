@@ -1,3 +1,7 @@
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   const nav = document.querySelector(".nav-main");
   const nav_item = document.querySelectorAll("nav a[data-target]");
@@ -5,14 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
     "#mobile-demo a[data-target]"
   );
   const carousel = document.querySelectorAll(".carousel");
-  const banner = document.querySelector(".hero-banner");
+  const banner = document.querySelector(".hero-wrapper");
   const prop_wrapper = document.querySelector(".proposal-wrapper");
   const met_border = document.querySelector(".met-border");
   const reveal_bold = document.querySelector(".reveal-bold");
-  const top_border = document.querySelector(".top_border");
-  const navHeight = nav.getBoundingClientRect().height;
-  const bannerHeight = banner.getBoundingClientRect().height;
-  const heightOffset = 20;
   const toggle_height = window.outerHeight;
   const back_to_top_btn = document.querySelector(".m-backtotop");
   const rsvp_btn = document.querySelector(".m-rsvp");
@@ -26,32 +26,33 @@ document.addEventListener("DOMContentLoaded", function () {
     indicators: true,
   });
 
-  // GSAP Hero Banner Animation
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
   ScrollTrigger.config({
     ignoreMobileResize: true,
     autoRefreshEvents: "load,DOMContentLoaded",
   });
 
+  ScrollTrigger.refresh();
+
   gsap
     .timeline({
       scrollTrigger: {
-        trigger: ".hero-wrapper", // Pin the entire hero-wrapper
-        start: "top top", // When the top of the hero-wrapper hits the top of the viewport
-        end: "bottom top", // End pinning after scrolling 300px past the bottom
-        scrub: true, // Smooth scrolling effect
+        trigger: ".hero-wrapper",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
         aniticiptePin: true,
-        pin: true, // Pin the hero-banner during scroll
+        pin: true,
       },
     })
     .fromTo(
       ".hero-banner",
-      { scale: 1, height: "100vh" }, // Initial state: full size
+      { scale: 1, height: "100vh" },
       {
         scale: 0,
         height: "auto",
         ease: "power2.out",
-      } // Final state: shrunk to match the image
+      }
     );
 
   document.body.addEventListener("scroll", () => {
@@ -68,13 +69,18 @@ document.addEventListener("DOMContentLoaded", function () {
     item.addEventListener("click", (e) => {
       e.preventDefault();
       const target = document.querySelector(item.dataset.target);
+      console.log(target);
+      const scrollPosition = ScrollTrigger.getScrollFunc(window)();
 
-      gsap.to(document.body, {
-        scrollTo: { y: target, offsetY: 50 }, // Adjust offsetY for fixed headers if needed
-        duration: 1, // Duration of the scroll
-        ease: "power2.inOut", // Smooth scrolling effect
+      gsap.to(window, {
+        scrollTo: {
+          y: scrollPosition + target.getBoundingClientRect().top - 50, // Offset for fixed navbar
+          autoKill: true,
+        },
+        duration: 1,
+        ease: "power2.inOut",
         onStart: () => {
-          // Optional: Highlight the target section (animation, background, etc.)
+          // Optional: Add entry animation for target
           gsap.fromTo(
             target,
             { opacity: 0, y: 50 },
@@ -90,12 +96,17 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       const target = document.querySelector(item.dataset.target);
 
-      gsap.to(document.body, {
-        scrollTo: { y: target, offsetY: 50 }, // Adjust offsetY for fixed headers if needed
-        duration: 1, // Duration of the scroll
-        ease: "power2.inOut", // Smooth scrolling effect
+      const scrollPosition = ScrollTrigger.getScrollFunc(window)();
+
+      gsap.to(window, {
+        scrollTo: {
+          y: scrollPosition + target.getBoundingClientRect().top - 50, // Offset for fixed navbar
+          autoKill: true,
+        },
+        duration: 1,
+        ease: "power2.inOut",
         onStart: () => {
-          // Optional: Highlight the target section (animation, background, etc.)
+          // Optional: Add entry animation for target
           gsap.fromTo(
             target,
             { opacity: 0, y: 50 },
@@ -132,19 +143,19 @@ document.addEventListener("DOMContentLoaded", function () {
     (entries) => {
       const [entry] = entries;
       if (!entry.isIntersecting) {
+        console.log("not intersecting");
         nav.classList.add("hidden");
         back_to_top_btn.classList.add("active");
         rsvp_btn.classList.add("active");
       } else {
+        console.log("intersecting");
         nav.classList.remove("hidden");
         back_to_top_btn.classList.remove("active");
         rsvp_btn.classList.remove("active");
       }
     },
     {
-      root: null,
       threshold: 0,
-      // rootMargin: `-${bannerHeight - navHeight - heightOffset}px`,
     }
   );
 
@@ -180,10 +191,10 @@ document.addEventListener("DOMContentLoaded", function () {
         gsap.fromTo(
           ".proposal-wrapper",
           {
-            clipPath: "inset(0 50% 0 50%)", // Fully reveals the content
+            clipPath: "inset(0 50% 0 50%)",
           },
           {
-            clipPath: "inset(0 0% 0 0%)", // Fully reveals the content
+            clipPath: "inset(0 0% 0 0%)",
             ease: "power2.out",
             duration: 2,
           }
