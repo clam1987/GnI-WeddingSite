@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const prop_wrapper = document.querySelector(".proposal-wrapper");
   const met_border = document.querySelector(".met-border");
   const reveal_bold = document.querySelector(".reveal-bold");
+  const top_border = document.querySelector(".top_border");
   const navHeight = nav.getBoundingClientRect().height;
   const bannerHeight = banner.getBoundingClientRect().height;
   const heightOffset = 20;
@@ -30,17 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
   ScrollTrigger.config({ ignoreMobileResize: true });
 
   let hasScrolled = false; // Flag to track if user has scrolled
+  let reverseScrolled = false;
   const body = document.body;
 
   function disableScroll() {
-    // console.log("disabled func", hasScrolled);
     body.style.overflow = "hidden";
   }
 
   function enableScroll() {
-    // console.log("enabled func", hasScrolled);
     body.style.overflowX = "hidden";
     body.style.overflowY = "scroll";
+    hasScrolled = false;
   }
 
   // Timeline for the animations
@@ -69,93 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     "<"
   );
-
-  ScrollTrigger.create({
-    trigger: ".top_border",
-    start: "top-=5 top", // Trigger when the content section is fully in view
-    onEnter: () => {
-      if (!timeline.isActive()) {
-        // console.log("entering");
-        timeline.play(); // Play animation to snap to content and hide hero banner
-      }
-    },
-    onEnterBack: () => {
-      if (!timeline.isActive()) {
-        // console.log("enter back");
-        timeline.reverse(); // Reverse animation to show hero banner again
-      }
-    },
-    onLeaveBack: () => {
-      if (!timeline.isActive()) {
-        // console.log("leaving back");
-        timeline.reverse(); // Ensure hero banner reappears when scrolling up
-      }
-    },
-    onLeave: () => {
-      if (!timeline.isActive()) {
-        // console.log("leaving");
-        timeline.play(); // Ensure content snaps into view when scrolling down
-      }
-    },
-  });
-
-  // gsap.to(".hero-banner", {
-  //   scale: 0.5, // Shrinks to 80% of original size
-  //   yPercent: 50, // Moves it upward for parallax
-  //   opacity: 0,
-  //   ease: "power1.out",
-  //   scrollTrigger: {
-  //     trigger: ".hero-banner",
-  //     start: "top top", // When the hero is at the top of the viewport
-  //     end: "bottom top", // When the hero is completely out of view
-  //     scrub: 2, // Smooth scrubbing effect
-  //   },
-  // });
-
-  // gsap.to(".hero-text", {
-  //   opacity: 0, // Fades out the text
-  //   y: 50, // Moves the text up slightly
-  //   ease: "power1.out",
-  //   scrollTrigger: {
-  //     trigger: ".hero-banner",
-  //     start: "top top",
-  //     end: "bottom top",
-  //     scrub: 2,
-  //   },
-  // });
-
-  // gsap.from(".top_border", {
-  //   opacity: 0, // Start invisible
-  //   scale: 0.8, // Start smaller
-  //   ease: "power1.out",
-  //   scrollTrigger: {
-  //     trigger: ".hero-banner",
-  //     start: "center", // Starts when the hero banner is out of view
-  //     scrub: 2, // Smooth transition
-  //   },
-  // });
-
-  // gsap.from(".page-start", {
-  //   opacity: 0, // Start invisible
-  //   scale: 0.8, // Start smaller
-  //   ease: "power1.out",
-  //   scrollTrigger: {
-  //     trigger: ".hero-banner",
-  //     start: "center", // Starts when the hero banner is out of view
-  //     scrub: 2, // Smooth transition
-  //   },
-  // });
-
-  // gsap.to(".proposal-wrapper", {
-  //   clipPath: "inset(0 0% 0 0%)", // Fully reveals the content
-  //   ease: "power2.out",
-  //   scrollTrigger: {
-  //     trigger: ".proposal-wrapper",
-  //     start: "top 90%", // Animation starts when the wrapper is 80% in view
-  //     end: "top 10%", // Animation completes before the wrapper leaves the viewport
-  //     scrub: 1, // Smoothly ties the animation to the scroll
-  //   },
-  // });
 
   document.body.addEventListener("scroll", () => {
     if (!hasScrolled) {
@@ -240,10 +154,8 @@ document.addEventListener("DOMContentLoaded", function () {
     (entries) => {
       const [entry] = entries;
       if (!entry.isIntersecting) {
-        console.log("not intersecting");
         nav.classList.add("hidden");
       } else {
-        console.log("intersecting");
         nav.classList.remove("hidden");
       }
     },
@@ -300,7 +212,23 @@ document.addEventListener("DOMContentLoaded", function () {
     { threshold: 0.4 }
   );
 
+  const borderObserver = new IntersectionObserver(
+    (entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting && reverseScrolled) {
+        reverseScrolled = false;
+        timeline.reverse();
+      } else {
+        reverseScrolled = true;
+      }
+    },
+    {
+      threshold: 0,
+    }
+  );
+
   bannerObserver.observe(banner);
   dateImgObserver.observe(prop_wrapper);
   propObserver.observe(met_border);
+  borderObserver.observe(top_border);
 });
