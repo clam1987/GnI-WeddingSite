@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "#mobile-demo a[data-target]"
   );
   const carousel = document.querySelectorAll(".carousel");
-  const banner = document.querySelector(".hero-wrapper");
+  const banner = document.querySelector(".top_border");
   const prop_wrapper = document.querySelector(".proposal-wrapper");
   const met_border = document.querySelector(".met-border");
   const reveal_bold = document.querySelector(".reveal-bold");
@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   rsvp_btn.addEventListener("click", (e) => {
     e.preventDefault();
     modal_instance[0].open();
+    // console.log(modal_instance[0]);
   });
 
   submit_btn.addEventListener("click", (e) => {
