@@ -16,9 +16,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggle_height = window.outerHeight;
   const back_to_top_btn = document.querySelector(".m-backtotop");
   const rsvp_btn = document.querySelector(".m-rsvp");
+  const submit_btn = document.querySelector(".submit");
+  let scrollPosition = 0;
 
   const side_nav = document.querySelectorAll(".sidenav");
   const parallax = document.querySelectorAll(".parallax");
+  const modal = document.querySelectorAll(".modal");
+  const modal_instance = M.Modal.init(modal, {
+    // preventScrolling: false,
+    onOpenStart: () => {
+      scrollPosition = window.scrollY;
+      console.log(scrollPosition);
+      window.moveTo(0, scrollPosition);
+    },
+    onCloseEnd: () => {
+      // window.scrollTo(0, scrollPosition);
+    },
+  });
   const side_nav_instance = M.Sidenav.init(side_nav);
   const parallax_instance = M.Parallax.init(parallax);
   const carousel_instance = M.Carousel.init(carousel, {
@@ -55,32 +69,20 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     );
 
-  document.body.addEventListener("scroll", () => {
-    if (document.body.scrollTop > toggle_height) {
-      back_to_top_btn.classList.add("active");
-      rsvp_btn.classList.add("active");
-    } else {
-      back_to_top_btn.classList.remove("active");
-      rsvp_btn.classList.remove("active");
-    }
-  });
-
   nav_item.forEach((item) => {
     item.addEventListener("click", (e) => {
       e.preventDefault();
       const target = document.querySelector(item.dataset.target);
-      console.log(target);
       const scrollPosition = ScrollTrigger.getScrollFunc(window)();
 
       gsap.to(window, {
         scrollTo: {
-          y: scrollPosition + target.getBoundingClientRect().top - 50, // Offset for fixed navbar
+          y: scrollPosition + target.getBoundingClientRect().top - 50,
           autoKill: true,
         },
         duration: 1,
         ease: "power2.inOut",
         onStart: () => {
-          // Optional: Add entry animation for target
           gsap.fromTo(
             target,
             { opacity: 0, y: 50 },
@@ -100,13 +102,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       gsap.to(window, {
         scrollTo: {
-          y: scrollPosition + target.getBoundingClientRect().top - 50, // Offset for fixed navbar
+          y: scrollPosition + target.getBoundingClientRect().top - 50,
           autoKill: true,
         },
         duration: 1,
         ease: "power2.inOut",
         onStart: () => {
-          // Optional: Add entry animation for target
           gsap.fromTo(
             target,
             { opacity: 0, y: 50 },
@@ -118,8 +119,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   back_to_top_btn.addEventListener("click", () => {
-    gsap.to(document.body, {
-      scrollTo: { y: 1, autoKill: true },
+    gsap.to(window, {
+      scrollTo: { y: 0, autoKill: true },
       duration: 1.5,
       ease: "power2.inOut",
       onComplete: () => {
@@ -137,6 +138,17 @@ document.addEventListener("DOMContentLoaded", function () {
         ScrollTrigger.refresh();
       },
     });
+  });
+
+  rsvp_btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal_instance[0].open();
+  });
+
+  submit_btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const guests = document.querySelector("#guests").value;
+    window.location.href = `mailto:gglinoga@gmail.com?subject=RSVP Wedding!&body=Amount of guests?%0D%0A${guests}`;
   });
 
   const bannerObserver = new IntersectionObserver(

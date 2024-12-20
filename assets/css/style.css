@@ -97,6 +97,8 @@ body {
   width: 100%;
   height: auto;
   position: absolute;
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
   transform-origin: top center;
 
   /* Flexbox stuff */
@@ -397,7 +399,7 @@ body {
 }
 
 .attire-text {
-  top: 28%;
+  top: 25%;
   width: 25%;
   right: 32%;
 }
@@ -405,6 +407,10 @@ body {
 .attire-title {
   top: 17%;
   left: 47%;
+}
+
+.instructions {
+  width: 40%;
 }
 
 .nav-fixed {
@@ -839,17 +845,6 @@ body {
     width: 100%;
   }
 
-  /* .hero-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    z-index: 1;
-    transform-origin: center;
-    } */
-
   .hero-image {
     width: auto;
     height: 100vh;
@@ -982,6 +977,10 @@ body {
   .wedding_invite {
     width: 100%;
     height: auto;
+  }
+
+  .instructions {
+    width: 100%;
   }
 }
 

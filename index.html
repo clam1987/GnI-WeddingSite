@@ -466,10 +466,13 @@
       </div>
       <div class="row mt-5 mb-5" id="rsvp">
         <div class="s12 flex justify-center">
-          <p class="caveat">
+          <p class="caveat p3 text-center instructions">
             Please click the RSVP button at the bottom of your screen to RSVP.
-            Underneath the questionaire, type an x on either the checkbox for
-            yes or no.
+            Once clicked, you will see a menu appear and it will ask you to type
+            in the number of guests you would like to bring along. Kindly fill
+            out the form and hit submit. It will open you default email app with
+            body and subject filled out! Last step would be to hit submit and
+            you're rsvped!
           </p>
         </div>
       </div>
@@ -536,22 +539,32 @@
     </div>
     <div class="row">
       <div class="s12 flex justify-center">
-        <div class="m-rsvp" aria-hidden="true">
-          <a
-            class="button-33"
-            href="mailto:gglinoga@gmail.com?subject=RSVP Wedding!&body=Are you attending and will you have a guest?%0D%0A[]yes%0D%0A[]no"
-            role="button"
-            >RSVP</a
-          >
+        <div class="m-rsvp">
+          <a class="button-33" href="#rsvp-modal" role="button">RSVP</a>
         </div>
       </div>
     </div>
 
-    <div class="m-backtotop" aria-hidden="true">
+    <div class="m-backtotop">
       <div class="arrow">
         <span class="material-icons"> arrow_drop_up </span>
       </div>
       <div class="text">Back to top</div>
+    </div>
+
+    <div id="rsvp-modal" class="modal">
+      <div class="modal-content">
+        <h4>How many guests will you bring?</h4>
+        <form class="row mt-6" style="gap: 1em">
+          <div class="s12 m6 input-field outlined">
+            <input id="guests" type="text" placeholder=" " maxlength="20" />
+            <label for="guests">Number of Guests</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect btn-flat submit">Submit</a>
+      </div>
     </div>
     <script src="./assets/js/app.js"></script>
   </body>
