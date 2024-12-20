@@ -413,6 +413,15 @@ body {
   width: 40%;
 }
 
+.modal {
+  background-color: #ffffff;
+}
+
+.rsvp-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
 .nav-fixed {
   position: fixed;
   z-index: 2;
@@ -979,8 +988,20 @@ body {
     height: auto;
   }
 
+  p.not-found,
+  p.instructions {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   .instructions {
     width: 100%;
+    font-size: 1.5rem;
+  }
+
+  .not-found {
+    width: 100%;
+    font-size: 1.25rem;
   }
 }
 

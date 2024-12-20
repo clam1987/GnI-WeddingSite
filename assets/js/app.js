@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
   submit_btn.addEventListener("click", (e) => {
     e.preventDefault();
     const guests = document.querySelector("#guests").value;
-    window.location.href = `mailto:gglinoga@gmail.com?subject=RSVP Wedding!&body=Amount of guests?%0D%0A${guests}`;
+    window.location.href = `mailto:gglinoga@gmail.com?subject=RSVP Wedding!&body=Guests attending?%0D%0A${guests}`;
   });
 
   const bannerObserver = new IntersectionObserver(
