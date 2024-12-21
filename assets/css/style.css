@@ -726,17 +726,17 @@ body {
   .ring-img {
     height: 24%;
     top: 52%;
-}
+  }
 
-.attire-title {
-  top: 15%;
-  left: 44%;
-}
+  .attire-title {
+    top: 15%;
+    left: 44%;
+  }
 
-.attire-text {
-  width: 27%;
-  right: 29%;
-}
+  .attire-text {
+    width: 27%;
+    right: 29%;
+  }
 }
 
 @media screen and (max-width: 1281px) {
@@ -753,7 +753,7 @@ body {
   }
 
   .met-title {
-    top: 20%
+    top: 20%;
   }
 
   .met-text {
@@ -840,24 +840,24 @@ body {
   }
 
   .met-title {
-    top: 20%;
+    top: 15%;
   }
 
   .met-text {
-    top: 35%;
+    top: 29%;
     width: 85%;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .second-date-img {
     height: 21%;
-    width: 39%;
-    top: 49%;
+    width: 37%;
+    top: 51%;
   }
 
   .reveal-text {
     top: 73%;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .ring-img {
@@ -879,6 +879,16 @@ body {
     top: 28%;
     width: 60%;
     right: 5%;
+  }
+}
+
+@media only screen and (max-width: 721px) and (min-width: 621px) {
+  .second-date-img {
+    width: 43%;
+  }
+
+  .ring-img {
+    top: 59.5%;
   }
 }
 
@@ -1131,6 +1141,7 @@ body {
 
   .second-date-img {
     width: 49%;
+    top: 49%;
   }
 
   .proposal-text {
@@ -1150,6 +1161,10 @@ body {
 
   .discover_ch_title {
     font-size: 2.25rem;
+  }
+
+  .not-found {
+    font-size: 1.15rem;
   }
 }
 
