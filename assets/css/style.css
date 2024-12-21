@@ -722,14 +722,24 @@ body {
   }
 }
 
-@media screen and (max-width: 1750px) and (min-width: 1650px) {
+@media only screen and (max-width: 1750px) and (min-width: 1650px) {
   .ring-img {
     height: 24%;
     top: 52%;
 }
+
+.attire-title {
+  top: 15%;
+  left: 44%;
 }
 
-@media only screen and (max-width: 1280px) {
+.attire-text {
+  width: 27%;
+  right: 29%;
+}
+}
+
+@media screen and (max-width: 1281px) {
   .hero-image {
     height: 100%;
     width: auto;
@@ -742,8 +752,12 @@ body {
     top: 57%;
   }
 
+  .met-title {
+    top: 20%
+  }
+
   .met-text {
-    top: 40%;
+    top: 37%;
     width: 60%;
     text-align: center;
   }
@@ -753,7 +767,8 @@ body {
   }
 
   .proposal-title {
-    top: 20%;
+    top: 23%;
+    font-size: 3.25rem;
   }
 
   .proposal-text {
