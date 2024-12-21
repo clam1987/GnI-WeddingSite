@@ -722,6 +722,13 @@ body {
   }
 }
 
+@media screen and (max-width: 1750px) and (min-width: 1650px) {
+  .ring-img {
+    height: 24%;
+    top: 52%;
+}
+}
+
 @media only screen and (max-width: 1280px) {
   .hero-image {
     height: 100%;
