@@ -51,11 +51,12 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap
     .timeline({
       scrollTrigger: {
+        id: "heroTrigger", // Add this line
         trigger: ".hero-wrapper",
         start: "top top",
         end: "bottom top",
         scrub: true,
-        aniticiptePin: true,
+        aniticipatePin: true,
         pin: true,
       },
     })
@@ -124,7 +125,17 @@ document.addEventListener("DOMContentLoaded", function () {
       duration: 1.5,
       ease: "power2.inOut",
       onComplete: () => {
-        ScrollTrigger.getAll().forEach((st) => st.revert()); // Reverts all ScrollTriggers to their original state
+        // ScrollTrigger.getAll().forEach((st) => st.revert()); // Reverts all ScrollTriggers to their original state
+        gsap.set(".hero-banner", {
+          scale: 1,
+          height: "100vh",
+          opacity: 1,
+        });
+        gsap.set(".hero-text", {
+          scale: 1,
+          yPercent: 0,
+          opacity: 1,
+        });
         ScrollTrigger.refresh();
         // gsap.set(".hero-banner", {
         //   scale: 1,
