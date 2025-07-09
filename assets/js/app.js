@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   back_to_top_btn.addEventListener("click", () => {
     gsap.to(window, {
-      scrollTo: { y: 0, autoKill: true },
+      scrollTo: { y: 0, autoKill: false },
       duration: 1.5,
       ease: "power2.inOut",
       onComplete: () => {
