@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //   opacity: 1,
         // });
 
-        ScrollTrigger.refresh();
+        // ScrollTrigger.refresh();
       },
     });
   });
