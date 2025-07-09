@@ -124,16 +124,18 @@ document.addEventListener("DOMContentLoaded", function () {
       duration: 1.5,
       ease: "power2.inOut",
       onComplete: () => {
-        gsap.set(".hero-banner", {
-          scale: 1,
-          yPercent: 0,
-          opacity: 1,
-        });
-        gsap.set(".hero-text", {
-          scale: 1,
-          yPercent: 0,
-          opacity: 1,
-        });
+        ScrollTrigger.getAll().forEach((st) => st.revert()); // Reverts all ScrollTriggers to their original state
+        ScrollTrigger.refresh();
+        // gsap.set(".hero-banner", {
+        //   scale: 1,
+        //   yPercent: 0,
+        //   opacity: 1,
+        // });
+        // gsap.set(".hero-text", {
+        //   scale: 1,
+        //   yPercent: 0,
+        //   opacity: 1,
+        // });
 
         ScrollTrigger.refresh();
       },
